@@ -1,0 +1,31 @@
+#filas{
+    display: grid;
+    grid-template-columns:repeat(10,1fr) ;
+    gap: 10px;
+} 
+ 
+ #celula1 {
+    background: #6610e6;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+
+    border-radius: 2px;
+  }
+  #celula0 {
+    background: #99969e;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+
+    border-radius: 2px;
+  }
+  
+  #celula2:hover {
+    background: #09fb51;
+    
+  }
+  ion-content{
+    --background: url('../../assets/home.jpeg'
+    ) no-repeat center center / cover;
+  }

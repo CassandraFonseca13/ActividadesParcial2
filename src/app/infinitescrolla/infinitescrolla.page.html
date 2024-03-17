@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>infinitescrolla</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">infinitescrolla</ion-title>
+    </ion-toolbar>
+    
+  </ion-header>
+  <div>
+    <!-- nombre, categoria, precio, provedor, fecha de ingreso, cantidad de stock, img -->
+    <div id="Superior">
+      <ion-item>
+        <ion-label for="nombre" position="floating">Nombre</ion-label>
+        <ion-input  [(ngModel)]="nombre" id="nombre" placeholder="Ingrese el nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label for="categoria" position="floating">Categoría</ion-label>
+        <ion-input  [(ngModel)]="categoria" id="categoria" placeholder="Ingrese la categoría"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label for="precio" position="floating">Precio</ion-label>
+        <ion-input  [(ngModel)]="precio" id="precio" placeholder="Ingrese el precio"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label for="provedor" position="floating">Proveedor</ion-label>
+        <ion-input  [(ngModel)]="provedor" id="provedor" placeholder="Ingrese el proveedor"></ion-input>
+      </ion-item>
+    </div>
+  
+    <div id="inferior">
+      <ion-item>
+        <ion-label for="fechaIngreso" position="floating">Fecha de ingreso</ion-label>
+        <ion-input   [(ngModel)]="fechaIngreso" id="fechaIngreso" placeholder="Ingrese la fecha de ingreso"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label for="cantidadStock" position="floating">Cantidad de stock</ion-label>
+        <ion-input  [(ngModel)]="cantidadStock" id="cantidadStock" placeholder="Ingrese la cantidad de stock"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label for="idStok" position="floating">Cantidad de stock</ion-label>
+        <ion-input  [(ngModel)]="idStok" id="idStok" placeholder="idStok"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="guardarDatos()" expand="block" fill="clear" shape="round">
+          Enviar
+        </ion-button>
+      </ion-item>
+    </div>
+    
+  </div>
+  
+  <ion-list>
+    <!--*ngForm sirve para hacer el molde -->
+    <ion-item *ngFor="let item of items; let index">
+      <ion-avatar slot="start">
+        <img [src]="'https://picsum.photos/80/80?random='+index" />
+      </ion-avatar>
+      <ion-label slot="start">mensaje nuevo{{item}}</ion-label>
+      <ion-label slot="end"> 11:56</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll 
+  threshold="25%" [disabled]="true" position="bottom"
+   (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+     loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
